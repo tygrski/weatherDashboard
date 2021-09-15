@@ -1,0 +1,32 @@
+/*  hero display */
+.header {
+background-image: linear-gradient(to right, rgb(30, 165, 86) , rgb(43, 91, 223));
+margin-top: 35px;
+text-align: center;
+}
+/*  hero text */
+.display-4 {
+  color: rgb(241, 241, 223);
+  font-weight: 800;
+ }
+
+/* display icon rainCloud
+.bi bi-cloud-drizzle-fill {
+  margin-left: 10px;
+}
+/* display icon sunShine*/
+/* .bi bi-brightness-alt-high {
+  margin-right: 10px;
+} */ 
+
+.jumbotron jumbotron-fluid {
+  border: solid 4px;
+}
+
+.col-3 {
+  margin-left: 15px;
+}
+
+.submitbtn {
+  margin: 50$;
+}
