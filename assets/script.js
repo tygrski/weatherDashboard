@@ -25,14 +25,27 @@ function getCoordinates (lat,lon) {
 function renderUvi(weather) {
   document.getElementById("uv-index").textContent = `UV Index: ${weather.current.uvi}`
 };
+
 function renderTemp(weather) {
-  // console.log(weather)
   document.getElementById("cityName-date").textContent = `City: ${weather.name}`
   document.getElementById("temp").textContent = `Current Temperature: ${weather.main.temp} f`
   document.getElementById("wind").textContent = `Wind Speed: ${weather.wind.speed} mph`
   document.getElementById("humidity").textContent = `Humidity: ${weather.main.humidity} %`
  
 };
+
 // append weather data to display and city to selected list
+document.getElementById("submitbtn").onclick = function() {
+  var text = document.getElementById("textinput").value; 
+  //create  list element
+  var li = "<li>" + text + "</li>";
+  // appendChild and add it to the list!
+  document.getElementById("citylist").appendChild(li);
+};
+
+// add 5 day forecast
+
 
 // set & get items to local storage
+
+// get from local storage
