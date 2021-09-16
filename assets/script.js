@@ -6,13 +6,16 @@ var cityName = document.getElementById('textinput').value;
 var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=98c6d72f0081cffab8d92e5d78183d22&units=imperial`
 fetch(apiUrl)
   .then(response => response.json())
-  .then(data => renderTemp(data));
-  getCoordinates();
+  .then(data => { 
+  renderTemp(data);
+  getCoordinates(data.coord.lat,data.coord.lon);
   console.log(data);
+})
 };
+
 // fetch UV index api
 function getCoordinates (lat,lon) {
-  var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${ lat }&lon=${ lon }&appid=98c6d72f0081cffab8d92e5d78183d22&units=imperial`; 
+  var apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=98c6d72f0081cffab8d92e5d78183d22&units=imperial` 
   fetch(apiUrl)
   .then(response => response.json())
   .then(data => renderUvi(data))
