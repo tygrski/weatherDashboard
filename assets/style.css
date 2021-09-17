@@ -1,7 +1,6 @@
 /*  hero display */
 .header {
 background-image: linear-gradient(to right, rgb(30, 165, 86) , rgb(43, 91, 223));
-margin-top: 35px;
 text-align: center;
 }
 /*  hero text */
@@ -19,8 +18,8 @@ text-align: center;
   margin-right: 10px;
 } */ 
 
-.jumbotron jumbotron-fluid {
-  border: solid 4px;
+.container {
+  border-style: solid 2px;
 }
 
 .col-3 {
