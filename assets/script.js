@@ -4,14 +4,14 @@ var cities = [];
 renderLastSearch();
 
 // Stringify and set "cities" key in localStorage to cities array
-function setCities() {
-  localStorage.setItem("citiesLocalStorage", JSON.stringify(cities));
-}
+// function setCities() {
+//   localStorage.setItem("citiesLocalStorage", JSON.stringify(cities));
+// };
 
 //Calling this function to initialize retrieiving the cities in local storage
 getCities();
 
-function getCities() {
+function getCities(cities) {
     // Get stored cities from localStorage
     // Parsing the JSON string to an object
     var storedCities = JSON.parse(localStorage.getItem("citiesLocalStorage"));
@@ -25,18 +25,20 @@ function getCities() {
 // dom listener for search button click
 document.getElementById('submit').addEventListener('click', getInputValue)
 
-// click function to select city and start search 
+var cityName = document.getElementById('textinput').value.trim();
+// select city and start search 
 function getInputValue() {
-
   // Selecting the input element and get its value 
-  var cityName = document.getElementById('textinput').value.trim();
-  
+  // var cityName = document.getElementById('textinput').value.trim();
+  console.log(cityName)
+  console.log("getinput",cityName )
   localStorage.setItem("lastSearch", cityName);
 
   // Push city input into cities array
   cities.push(cityName);
-
-
+  addSearchedCities(cityName)
+};
+ function search(cityName) {
   // fetch request for weather API for selected city 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=98c6d72f0081cffab8d92e5d78183d22&units=imperial`
   fetch(apiUrl)
@@ -60,8 +62,20 @@ function getInputValue() {
 
   // Make call to function
   fiveDay (cityName)
-  setCities();
+  getCities();
 };
+
+function addSearchedCities  () {
+ //create  list element and append to UL
+ var button = document.createElement("button");
+ button.innerHTML = cityName;
+ console.log(button);
+
+ // appendChild and add it to the list
+ var toList = document.getElementById("cityList");
+ console.log(toList);
+ toList.appendChild(button);
+}
 
 // fetch UV index api
 function getCoordinates (lat,lon) {
