@@ -28,8 +28,12 @@
         <h2>Search for a City</h2>
         <input id="textinput" type="text" placeholder="city name"/>
         <br>
+        <div class="input-group">
+        </div>
         <br>
-        <button type="submit" id="submitbtn" class="col-3" onclick="getInputValue()">Search</button>
+         <div class="d-grid gap-2">
+            <button class="btn btn-primary col-3" id="submit" type="submitbtn"  >Search</button>
+        </div> 
     </div>
     <br>
       <div>
@@ -46,48 +50,53 @@
           <h4 id="wind"></h4>
           <h4 id="humidity"></h4>
           <h4 id="uv-index"></h4>
-
-        </div>
+        </di v>
       </div>
       <div class="5day">
         <h2>5-Day Forecast</h2>
       </div>
-      <div class="row">
+      <div class="row ">
         <div class="row align-items-center">
-          <div class="col">
+          <div class="col" id="day1">
            Day 1
+           <p id="dateDay1"></p>
+           <p id="tempDay1"></p>
+           <p id="humidityDay1"></p>
+           <img id="iconDay1">
           </div>
-          <div class="col">
+          <div class="col" id="day2">
            Day 2
+           <p id="dateDay2"></p>
+           <p id="tempDay2"></p>
+           <p id="humidityDay2"></p>
+           <img id="iconDay2">
           </div>
-          <div class="col">
+          <div class="col" id="day3">
             Day 3
+            <p id="dateDay3"></p>
+           <p id="tempDay3"></p>
+           <p id="humidityDay3"></p>
+           <img id="iconDay3">
           </div>
-          <div class="col">
+          <div class="col" id="day4">
            Day 4
+           <p id="dateDay4"></p>
+           <p id="tempDay4"></p>
+           <p id="humidityDay4"></p>
+           <img id="iconDay4">
           </div>
-          <div class="col">
+          <div class="col" id="day5">
           Day 5
+          <p id="dateDay5"></p>
+           <p id="tempDay5"></p>
+           <p id="humidityDay5"></p>
+           <img id="iconDay5">
           </div>
         </div>
       </div>
     </div>
-    
   </div>
-  
-  <!-- <div class="row align-items-end">
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-  </div> -->
 </div>
-  
-  <script src="assets/script.js"></script>
+<script src="assets/script.js"></script>
 </body>
 </html>

@@ -1,14 +1,16 @@
-/*  hero display */
+/* *  hero display */ 
 .header {
-background-image: linear-gradient(to right, rgb(30, 165, 86) , rgb(43, 91, 223));
+background-image: linear-gradient(to bottom right,rgb(30, 165, 86) , rgb(43, 91, 223)) ;
 text-align: center;
 }
+
 /*  hero text */
 .display-4 {
   color: rgb(241, 241, 223);
   font-weight: 800;
- }
-
+  text-shadow: 0.5px 0.5px;
+}
+ 
 /* display icon rainCloud
 .bi bi-cloud-drizzle-fill {
   margin-left: 10px;
@@ -19,10 +21,18 @@ text-align: center;
 } */ 
 
 .container {
-  border-style: solid 2px;
+  border: solid 5px;
 }
 
+/* city list */
 .col-3 {
   margin-left: 15px;
 }
 
+/* 5 day forecast */
+#day1, #day2, #day3, #day4, #day5 {
+background-image: linear-gradient(to bottom right,rgb(30, 165, 86) , rgb(43, 91, 223)) ;
+border: solid 2px;
+font-size: 20px;
+text-shadow: 0.5px 0.5px
+};
