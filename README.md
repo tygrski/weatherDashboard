@@ -6,6 +6,6 @@
 # Created with :
 ## ✔ HTML
 ## ✔ CSS
-## ✔ JavaSCript
+## ✔ JavaScript
 
 ### Made by Travis Tybor 
