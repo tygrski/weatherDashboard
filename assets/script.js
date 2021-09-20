@@ -1,22 +1,21 @@
  //Empty array to store cities searched by the user
 var cities = [];
 
-renderLastSearch();
+// set from local storage
+function setStorage (cities) {
+  localStorage.setItem("lastSearch", cities);
+}
 
-// Stringify and set "cities" key in localStorage to cities array
-// function setCities() {
-//   localStorage.setItem("citiesLocalStorage", JSON.stringify(cities));
-// };
+renderLastSearch();
 
 //Calling this function to initialize retrieiving the cities in local storage
 getCities();
 
+// get from local storage
 function getCities(cities) {
-    // Get stored cities from localStorage
-    // Parsing the JSON string to an object
+   // Parsing the JSON string to an object
     var storedCities = JSON.parse(localStorage.getItem("citiesLocalStorage"));
-
-    // If cities were are not null then store the city in the local storage 
+  // If cities were are not null then store the city in the local storage 
     if (storedCities !== null) {
         cities = storedCities;
     }
@@ -25,19 +24,20 @@ function getCities(cities) {
 // dom listener for search button click
 document.getElementById('submit').addEventListener('click', getInputValue)
 
-var cityName = document.getElementById('textinput').value.trim();
+var cityName = document.getElementById('textinput');
+
 // select city and start search 
 function getInputValue() {
-  // Selecting the input element and get its value 
-  // var cityName = document.getElementById('textinput').value.trim();
-  console.log(cityName)
+  var searchCity = cityName.value.trim();
+  console.log(searchCity)
   console.log("getinput",cityName )
-  localStorage.setItem("lastSearch", cityName);
-
   // Push city input into cities array
-  cities.push(cityName);
-  addSearchedCities(cityName)
+   cities.push(searchCity);
+   
+  // addSearchedCities(cityName)
+  search(searchCity)
 };
+
  function search(cityName) {
   // fetch request for weather API for selected city 
   var apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=98c6d72f0081cffab8d92e5d78183d22&units=imperial`
@@ -61,8 +61,9 @@ function getInputValue() {
    toList.appendChild(button);
 
   // Make call to function
-  fiveDay (cityName)
+  fiveDay (cityName);
   getCities();
+  setStorage(cities)
 };
 
 function addSearchedCities  () {
@@ -75,7 +76,7 @@ function addSearchedCities  () {
  var toList = document.getElementById("cityList");
  console.log(toList);
  toList.appendChild(button);
-}
+};
 
 // fetch UV index api
 function getCoordinates (lat,lon) {
@@ -88,7 +89,7 @@ function getCoordinates (lat,lon) {
 // fetch 5 day forecast
 function fiveDay (city) {
 var apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=98c6d72f0081cffab8d92e5d78183d22&units=imperial`
-fetch(apiUrl)
+  fetch(apiUrl)
   .then(response => response.json())
   .then(data => renderFiveDay(data))
 };
@@ -157,6 +158,6 @@ document.getElementById("iconDay5").setAttribute("src", `https://openweathermap.
 
 function renderLastSearch () {
  var city =  localStorage.getItem("lastSearch");
-  getInputValue(city);
+  // getInputValue(city);
 };
 
