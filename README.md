@@ -1,3 +1,4 @@
 ## Weather Dashboard!
-## [Screenshot (242)](https://user-images.githubusercontent.com/77369211/133948183-e9b995f4-6c71-4de2-bcb0-8778980a5e23.png)
+
 ## live link :https://tygrski.github.io/weatherDashboard/
+![Screenshot (242)](https://user-images.githubusercontent.com/77369211/133948255-9342a98f-5fbb-49a5-8a9e-d724428126af.png)
