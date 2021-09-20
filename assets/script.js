@@ -3,22 +3,19 @@ var cities = [];
 
 // set from local storage
 function setStorage (cities) {
-  localStorage.setItem("lastSearch", cities);
+  localStorage.setItem("citiesLocalStorage", JSON.stringify(cities));
 }
 
 renderLastSearch();
 
-//Calling this function to initialize retrieiving the cities in local storage
-getCities();
-
 // get from local storage
-function getCities(cities) {
-   // Parsing the JSON string to an object
-    var storedCities = JSON.parse(localStorage.getItem("citiesLocalStorage"));
+function getCities() {
+  // Parsing the JSON string to an object
+  var storedCities = JSON.parse(localStorage.getItem("citiesLocalStorage"));
   // If cities were are not null then store the city in the local storage 
-    if (storedCities !== null) {
-        cities = storedCities;
-    }
+  if (storedCities !== null) {
+    cities = storedCities;
+  }
 };
 
 // dom listener for search button click
@@ -33,7 +30,6 @@ function getInputValue() {
   console.log("getinput",cityName )
   // Push city input into cities array
    cities.push(searchCity);
-   
   // addSearchedCities(cityName)
   search(searchCity)
 };
@@ -62,7 +58,6 @@ function getInputValue() {
 
   // Make call to function
   fiveDay (cityName);
-  getCities();
   setStorage(cities)
 };
 
@@ -157,7 +152,10 @@ document.getElementById("iconDay5").setAttribute("src", `https://openweathermap.
 };
 
 function renderLastSearch () {
- var city =  localStorage.getItem("lastSearch");
-  // getInputValue(city);
+  getCities();
+  console.log(cities)
+  if (cities.length) {
+  search(cities[cities.length-1])
+  }
 };
 
